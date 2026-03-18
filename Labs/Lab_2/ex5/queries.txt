@@ -1,0 +1,41 @@
+1.1 Titles of all DVDs sorted by Price
+XQuery (run with `xidel -s dvd.xml --xquery "..."`):
+```
+for $dvd in /dvds/dvd
+order by xs:decimal($dvd/price)
+return $dvd/title
+```
+Result:
+- Die Another Day
+- GoldenEye
+- Titanic
+- Gone with the Wind
+- Avatar
+
+1.2 DVDs directed by Cameron
+XPath:
+```
+/dvds/dvd[director='Cameron']
+```
+Result:
+- Titanic (1997)
+- Avatar (2009)
+
+1.3 Number of DVDs directed by Cameron
+XPath:
+```
+count(/dvds/dvd[director='Cameron'])
+```
+Result: `2`
+
+1.4 Number of DVDs directed by each author
+XQuery:
+```
+for $name in distinct-values(/dvds/dvd/director)
+return concat($name, ': ', count(/dvds/dvd[director=$name]))
+```
+Result:
+- Cameron: 2
+- Tamahori: 1
+- Fleming: 1
+- Cukor: 1

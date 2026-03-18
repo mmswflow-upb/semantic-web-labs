@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<movies xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ex1.xsd">
+    <movie>
+        <title>Galactic Odyssey</title>
+        <director>Ana Petrescu</director>
+        <actors>
+            <actor>
+                <name>Ion Popescu</name>
+            </actor>
+            <actor>
+                <name>Mara Ionescu</name>
+            </actor>
+        </actors>
+        <year>2026</year>
+        <synopsis>An interstellar heist crew races against a corrupt consortium to recover a stolen terraforming engine.</synopsis>
+        <halls>
+            <hall id="1">
+                <chairType>mesh fabric</chairType>
+                <capacity>120</capacity>
+            </hall>
+            <hall id="2">
+                <chairType>leather arm chair</chairType>
+                <capacity>80</capacity>
+            </hall>
+        </halls>
+        <schedules>
+            <schedule>
+                <date>2026-03-25</date>
+                <hours>19:00</hours>
+                <day>Wednesday</day>
+            </schedule>
+            <schedule>
+                <date>2026-03-26</date>
+                <hours>21:30</hours>
+                <day>Thursday</day>
+            </schedule>
+        </schedules>
+        <genre>action</genre>
+    </movie>
+    <movie>
+        <title>Silent Horizon</title>
+        <director>Elena Popa</director>
+        <actors>
+            <actor>
+                <name>Radu Munteanu</name>
+            </actor>
+        </actors>
+        <year>2024</year>
+        <halls>
+            <hall id="3">
+                <chairType>mesh fabric</chairType>
+                <capacity>100</capacity>
+            </hall>
+        </halls>
+        <schedules>
+            <schedule>
+                <date>2026-03-27</date>
+                <hours>18:45</hours>
+                <day>Friday</day>
+            </schedule>
+        </schedules>
+        <genre>drama</genre>
+    </movie>
+    <movie>
+        <title>Titanic</title>
+        <director>James Cameron</director>
+        <actors>
+            <actor>
+                <name>Leonardo DiCaprio</name>
+            </actor>
+            <actor>
+                <name>Kate Winslet</name>
+            </actor>
+        </actors>
+        <year>1997</year>
+        <synopsis>The tragic voyage of the RMS Titanic unfolds in a sweeping romance.</synopsis>
+        <halls>
+            <hall id="4">
+                <chairType>leather arm chair</chairType>
+                <capacity>150</capacity>
+            </hall>
+        </halls>
+        <schedules>
+            <schedule>
+                <date>2026-03-28</date>
+                <hours>20:00</hours>
+                <day>Saturday</day>
+            </schedule>
+            <schedule>
+                <date>2026-03-29</date>
+                <hours>16:30</hours>
+                <day>Sunday</day>
+            </schedule>
+        </schedules>
+        <genre>drama</genre>
+    </movie>
+</movies>

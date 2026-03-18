@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:simpleType name="chairTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="mesh fabric"/>
+            <xs:enumeration value="leather arm chair"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="genreType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="action"/>
+            <xs:enumeration value="romance"/>
+            <xs:enumeration value="drama"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="movies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="movie" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="title" type="xs:string"/>
+                            <xs:element name="director" type="xs:string"/>
+                            <xs:element name="actors">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="actor" minOccurs="1" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="name" type="xs:string"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="year" type="xs:integer"/>
+                            <xs:element name="synopsis" type="xs:string" minOccurs="0"/>
+                            <xs:element name="halls">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="hall" minOccurs="1" maxOccurs="3">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="chairType" type="chairTypeType"/>
+                                                    <xs:element name="capacity" type="xs:positiveInteger"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:integer" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="schedules">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="schedule" minOccurs="1" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="date" type="xs:date"/>
+                                                    <xs:element name="hours" type="xs:string"/>
+                                                    <xs:element name="day" type="xs:string" minOccurs="0"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="genre" type="genreType"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
