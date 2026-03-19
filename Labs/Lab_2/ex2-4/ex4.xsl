@@ -7,61 +7,100 @@
     <xsl:template match="/">
         <html>
             <head>
-                <title>Titanic Schedule</title>
+                <title>Interstellar Schedule</title>
             </head>
             <body>
-                <h1>Titanic Schedule</h1>
+                <h1>Interstellar Schedule</h1>
 
                 <table border="1">
                     <tr>
-                        <th> </th>
+                        <th>Hour / Hall</th>
                         <th>Monday</th>
                         <th>Tuesday</th>
                         <th>Wednesday</th>
                         <th>Thursday</th>
                         <th>Friday</th>
+                        <th>Saturday</th>
+                        <th>Sunday</th>
                     </tr>
 
                     <tr>
-                        <td>Hour / Hall</td>
+                        <td>Program</td>
 
                         <td>
-                            <xsl:for-each select="dvds/dvd[title='Titanic']/schedule[day='Monday']">
-                                <xsl:value-of select="hour"/>
+                            <xsl:for-each select="movies/movie[title='Interstellar']/schedules/schedule[day='Monday']">
+                                <xsl:value-of select="hours"/>
                                 <br/>
-                                <xsl:value-of select="hall"/>
+                                <xsl:for-each select="../../halls/hall">
+                                    Hall <xsl:value-of select="@id"/>
+                                    <br/>
+                                </xsl:for-each>
                             </xsl:for-each>
                         </td>
 
                         <td>
-                            <xsl:for-each select="dvds/dvd[title='Titanic']/schedule[day='Tuesday']">
-                                <xsl:value-of select="hour"/>
+                            <xsl:for-each select="movies/movie[title='Interstellar']/schedules/schedule[day='Tuesday']">
+                                <xsl:value-of select="hours"/>
                                 <br/>
-                                <xsl:value-of select="hall"/>
+                                <xsl:for-each select="../../halls/hall">
+                                    Hall <xsl:value-of select="@id"/>
+                                    <br/>
+                                </xsl:for-each>
                             </xsl:for-each>
                         </td>
 
                         <td>
-                            <xsl:for-each select="dvds/dvd[title='Titanic']/schedule[day='Wednesday']">
-                                <xsl:value-of select="hour"/>
+                            <xsl:for-each select="movies/movie[title='Interstellar']/schedules/schedule[day='Wednesday']">
+                                <xsl:value-of select="hours"/>
                                 <br/>
-                                <xsl:value-of select="hall"/>
+                                <xsl:for-each select="../../halls/hall">
+                                    Hall <xsl:value-of select="@id"/>
+                                    <br/>
+                                </xsl:for-each>
                             </xsl:for-each>
                         </td>
 
                         <td>
-                            <xsl:for-each select="dvds/dvd[title='Titanic']/schedule[day='Thursday']">
-                                <xsl:value-of select="hour"/>
+                            <xsl:for-each select="movies/movie[title='Interstellar']/schedules/schedule[day='Thursday']">
+                                <xsl:value-of select="hours"/>
                                 <br/>
-                                <xsl:value-of select="hall"/>
+                                <xsl:for-each select="../../halls/hall">
+                                    Hall <xsl:value-of select="@id"/>
+                                    <br/>
+                                </xsl:for-each>
                             </xsl:for-each>
                         </td>
 
                         <td>
-                            <xsl:for-each select="dvds/dvd[title='Titanic']/schedule[day='Friday']">
-                                <xsl:value-of select="hour"/>
+                            <xsl:for-each select="movies/movie[title='Interstellar']/schedules/schedule[day='Friday']">
+                                <xsl:value-of select="hours"/>
                                 <br/>
-                                <xsl:value-of select="hall"/>
+                                <xsl:for-each select="../../halls/hall">
+                                    Hall <xsl:value-of select="@id"/>
+                                    <br/>
+                                </xsl:for-each>
+                            </xsl:for-each>
+                        </td>
+
+                        <td>
+                            <xsl:for-each select="movies/movie[title='Interstellar']/schedules/schedule[day='Saturday']">
+                                <xsl:value-of select="hours"/>
+                                <br/>
+                                <xsl:for-each select="../../halls/hall">
+                                    Hall <xsl:value-of select="@id"/>
+                                    <br/>
+                                </xsl:for-each>
+                            </xsl:for-each>
+                        </td>
+
+                        <td>
+                            <xsl:for-each select="movies/movie[title='Interstellar']/schedules/schedule[day='Sunday']">
+                                <xsl:value-of select="hours"/>
+                                <br/>
+                                <xsl:for-each select="../../halls/hall">
+                                    Hall <xsl:value-of select="@id"/>
+                                    <br/>
+                                </xsl:for-each>
                             </xsl:for-each>
                         </td>
                     </tr>
