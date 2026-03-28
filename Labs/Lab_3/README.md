@@ -23,9 +23,32 @@ DocumentBuilder builder = factory.newDocumentBuilder();
 The factory produces a `DocumentBuilder` — the object that actually reads XML and builds the in-memory DOM tree.
 
 ```java
-return builder.parse(new File(fileName));
+return builder.parse(Lab_3_Solutions.class.getClassLoader().getResourceAsStream(fileName));
 ```
-`.parse()` reads the XML file from disk and returns a `Document` — the root of the DOM tree. Every element, attribute, and text node in the XML is now accessible as Java objects.
+This is a 3-step chain that loads the XML from the **classpath** instead of a raw filesystem path:
+1. `Lab_3_Solutions.class` — gets the `Class` object representing the compiled class.
+2. `.getClassLoader()` — gets the **classloader** that loaded it.
+3. `.getResourceAsStream("document.xml")` — asks the classloader to search the classpath for a file with that name and return it as an `InputStream`.
+
+Then `builder.parse(InputStream)` reads the XML from that stream and returns a `Document` — the root of the DOM tree. Every element, attribute, and text node in the XML is now accessible as Java objects.
+
+### What are the classpath and classloader?
+
+The **classpath** is a list of locations (folders, `.jar` files) where Java looks for classes and resources at runtime. Gradle automatically puts `src/main/resources/` on the classpath, so any file in that folder becomes findable by name alone — no full path needed.
+
+The **classloader** is the JVM component that actually does the searching. When your code calls `.getResourceAsStream("document.xml")`, the classloader walks through the classpath locations one by one until it finds a match and returns it.
+
+Think of it like this: the **classpath** is a phonebook (a list of addresses to check) and the **classloader** is the person flipping through it.
+
+### Why not `new File(fileName)`?
+
+Using `new File("document.xml")` looks for the file relative to the **working directory** — whichever folder the JVM was launched from. When IntelliJ/Gradle runs the program, the working directory is the project root (`Lab_3/`), but the XML files live inside `src/main/resources/`, so it would fail with a file-not-found error.
+
+Loading from the classpath avoids this entirely: Gradle always copies `src/main/resources/` contents onto the classpath regardless of the working directory.
+
+### What if two files share the same name?
+
+The classloader returns the **first match** it finds on the classpath and stops. The order depends on how Gradle orders the classpath entries. If `document.xml` existed in both `src/main/resources/` and inside some `.jar` dependency, whichever appears first wins — the other is silently ignored with no warning. That is why real projects often place resources in subdirectories (e.g. `com/mycompany/myapp/document.xml`) to avoid collisions. For a small lab project, plain filenames at the root are fine.
 
 ---
 

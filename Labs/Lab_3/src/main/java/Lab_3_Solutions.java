@@ -2,7 +2,6 @@ import org.w3c.dom.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.*;
-import java.io.File;
 
 public class Lab_3_Solutions {
 
@@ -83,7 +82,7 @@ public class Lab_3_Solutions {
     public static Document loadXml(String fileName) throws Exception {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        return builder.parse(new File(fileName));
+        return builder.parse(Lab_3_Solutions.class.getClassLoader().getResourceAsStream(fileName));
     }
 
     public static void printPerson(Node node) {
