@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:ex="http://example.org/startrek/">
+
+  <!-- The TV series -->
+  <rdf:Description rdf:about="http://example.org/startrek/STTNG">
+    <ex:title>Star Trek: The Next Generation</ex:title>
+    <ex:genre>SF TV series</ex:genre>
+    <ex:hasActors>
+      <rdf:Bag>
+        <rdf:li rdf:resource="http://example.org/startrek/PatrickStewart"/>
+        <rdf:li rdf:resource="http://example.org/startrek/JonathanFrakes"/>
+        <rdf:li rdf:resource="http://example.org/startrek/LeVarBurton"/>
+      </rdf:Bag>
+    </ex:hasActors>
+  </rdf:Description>
+
+  <!-- Actors -->
+  <rdf:Description rdf:about="http://example.org/startrek/PatrickStewart">
+    <ex:name>Patrick Stewart</ex:name>
+    <ex:playedRole rdf:resource="http://example.org/startrek/CaptPicard"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/startrek/JonathanFrakes">
+    <ex:name>Jonathan Frakes</ex:name>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/startrek/LeVarBurton">
+    <ex:name>LeVar Burton</ex:name>
+  </rdf:Description>
+
+  <!-- Role -->
+  <rdf:Description rdf:about="http://example.org/startrek/CaptPicard">
+    <ex:roleName>Capt. Jean-Luc Picard</ex:roleName>
+  </rdf:Description>
+
+</rdf:RDF>
